@@ -2,15 +2,23 @@
 <html lang="">
 	<head>
 		<!-- Google tag (gtag.js) -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-50EMWGS16V"></script>
 		<script>
-			window.dataLayer = window.dataLayer || []
-			function gtag() {
-				dataLayer.push(arguments)
-			}
-			gtag('js', new Date())
+			if (
+				!window.location.hostname.includes('localhost') &&
+				!window.location.hostname.includes('127.0.0.1')
+			) {
+				const script = document.createElement('script')
+				script.async = true
+				script.src = 'https://www.googletagmanager.com/gtag/js?id=G-50EMWGS16V'
+				document.head.appendChild(script)
 
-			gtag('config', 'G-50EMWGS16V')
+				window.dataLayer = window.dataLayer || []
+				function gtag() {
+					dataLayer.push(arguments)
+				}
+				gtag('js', new Date())
+				gtag('config', 'G-50EMWGS16V')
+			}
 		</script>
 		<meta charset="UTF-8" />
 		<link rel="icon" href="./favicon.png" />
